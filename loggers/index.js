@@ -1,3 +1,4 @@
+'use strict'
 let bunyan = require('bunyan');
 let fs = require('fs');
 // TODO make this configurable
