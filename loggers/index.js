@@ -1,11 +1,10 @@
 'use strict'
 let bunyan = require('bunyan');
 let fs = require('fs');
-// TODO make this configurable
 var engineLog = bunyan.createLogger({
   name: 'engine',
-  level: 'debug',
-  stream: fs.createWriteStream('engine.log')
+  level: process.env.LOG_LEVEL_ENGINE,
+  stream: fs.createWriteStream(process.env.LOG_FILE_ENGINE)
 });
 
 module.exports = {

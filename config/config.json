@@ -1,0 +1,7 @@
+{
+  "test": {},
+  "development": {
+    "LOG_LEVEL_ENGINE": "debug",
+    "LOG_FILE_ENGINE": "engine.log"
+  }
+}

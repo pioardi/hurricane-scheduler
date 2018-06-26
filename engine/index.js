@@ -3,7 +3,7 @@ let log = require('../loggers').default;
 log.info('Engine required');
 let tick = () => {
     setTimeout(() => {
-        log.info('tick');
+        log.trace('tick');
         tick();
     }, 60 * 1000);
 };
