@@ -1,5 +1,5 @@
 'use strict'
-let log = require('../loggers').default;
+let log = require('../loggers/loggers').default;
 log.info('Engine required');
 let tick = () => {
     setTimeout(() => {
@@ -14,4 +14,3 @@ let toExport = {
     tick: tick
 }
 module.exports = toExport;
-
