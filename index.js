@@ -6,8 +6,8 @@ let config = require('./config/config.js')
 let configObject = require('./config/config.json')
 config(configObject)
 let log = require('./loggers/loggers').default
-let engine = require('./engine/engine')
-engine.tick()
+require('./engine/engine')
+
 
 log.info('Loading REST API')
 require('./api/api')
