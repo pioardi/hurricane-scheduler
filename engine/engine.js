@@ -1,16 +1,16 @@
 'use strict'
-let log = require('../loggers/loggers').default;
-log.info('Engine required');
+let log = require('../loggers/loggers').default
+log.info('Engine required')
 let tick = () => {
     setTimeout(() => {
-        log.trace('tick');
-        tick();
-    }, 60 * 1000);
-};
+        log.trace('tick')
+        tick()
+    }, 60 * 1000)
+}
 /**
  * Tick function will be repeated each minute.
  */
 let toExport = {
     tick: tick
 }
-module.exports = toExport;
+module.exports = toExport

@@ -9,5 +9,5 @@ let log = require('./loggers/loggers').default
 let engine = require('./engine/engine')
 engine.tick()
 
-log.info('Loading REST API');
+log.info('Loading REST API')
 require('./api/api')
