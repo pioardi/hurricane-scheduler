@@ -10,4 +10,5 @@ require('./engine/engine')
 
 
 log.info('Loading REST API')
+require('./engine/engine')
 require('./api/api')
