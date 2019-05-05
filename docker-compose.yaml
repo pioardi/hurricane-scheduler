@@ -12,10 +12,12 @@ services:
       IS_LEADER: "true"
       LOG_LEVEL_ENGINE: debug
       LOG_FILE_ENGINE: engine.log
+      JOB_PORT: 3030
     hostname: leader
     ports: 
       - 3000:3000
       - 9000:9000
+      - 3030:3030
   follower-1:
     image: hurricane-scheduler:1.0
     environment: 
@@ -25,10 +27,12 @@ services:
       SEED_NODES: leader,follower-1,follower-2
       LOG_LEVEL_ENGINE: debug
       LOG_FILE_ENGINE: engine.log
+      JOB_PORT: 3031
     hostname: follower-1
     ports:
       - 3001:3000
       - 9001:9000
+      - 3031:3030
     depends_on:
       - leader
   follower-2:
@@ -40,9 +44,11 @@ services:
       SEED_NODES: leader,follower-1,follower-2
       LOG_LEVEL_ENGINE: debug
       LOG_FILE_ENGINE: engine.log
+      JOB_PORT: 3032
     hostname: follower-2
     ports:
       - 3002:3000
       - 9002:9000
+      - 3032:3030
     depends_on:
       - leader
