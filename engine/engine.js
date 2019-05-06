@@ -7,22 +7,26 @@ const ring = require('ring-election');
 const { Job } = require('../data/data');
 
 if (process.env.IS_LEADER) {
+  console.log('Starting as leader');
   ring.leader.createServer();
 } else {
+  console.log('Starting as follower');
   ring.follower.createClient();
 }
 
 let superproce = x => {
   log.debug('Minute tick');
   // to get assigned partitions
-  let assignedPartitions = ring.follower.partitions();
-  console.log(assignedPartitions);
-  assignedPartitions.forEach(partition => {
-    Job.find({ partition: partition }, (err, jobs) => {
-      let now = new Date();
-      checkJobs(jobs, partition, now);
+  if(!process.env.IS_LEADER){
+    let assignedPartitions = ring.follower.partitions();
+    console.log(assignedPartitions);
+    assignedPartitions.forEach(partition => {
+      Job.find({ partition: partition }, (err, jobs) => {
+        let now = new Date();
+        checkJobs(jobs, partition, now);
+      });
     });
-  });
+  }
 };
 
 let script1 = id => {
