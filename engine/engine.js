@@ -8,10 +8,14 @@ const { Job } = require('../data/data');
 
 if (process.env.IS_LEADER) {
   console.log('Starting as leader');
-  ring.leader.createServer();
+  let leader = ring.leader;
+  leader.createServer();
+  leader.startMonitoring();
 } else {
   console.log('Starting as follower');
-  ring.follower.createClient();
+  let follower = ring.follower;
+  follower.createClient();
+  follower.startMonitoring();
 }
 
 let superproce = x => {

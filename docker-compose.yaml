@@ -9,7 +9,6 @@ services:
       MONITORING_PORT: 9000
       SEED_NODES: leader:3000,follower-1:3001,follower-2:3002
       LEADER_MODE: 1
-      IS_LEADER: "true"
       LOG_LEVEL_ENGINE: debug
       LOG_FILE_ENGINE: engine.log
       JOB_PORT: 3030
