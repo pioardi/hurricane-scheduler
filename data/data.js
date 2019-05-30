@@ -5,8 +5,13 @@ const Schema = mongoose.Schema;
 //const ObjectId = Schema.ObjectId;
 const Job = new Schema({
   title: String,
-  hour: String,
-  minute: String,
+  hours: [String],
+  minutes: [String],
+  timezone: String,
+  weekDays: [String],
+  daysOfTheMonth: [String],
+  monthsOfTheYear: [String],
+  years: [String],
   scriptId: String, 
   partition: String
 });

@@ -12,5 +12,6 @@ app.use(express.json())
 app.get('/schedules/:id', jobs.getJob)
 app.post('/schedules', jobs.createJob)
 app.delete('/schedules/:id', jobs.deleteJob)
+app.put('/schedules/:id' , jobs.updateJob)
 let port = process.env.JOB_PORT || 3030
 app.listen(port)
