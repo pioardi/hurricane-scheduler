@@ -17,6 +17,6 @@ Multiple data storage ( Cassandra, MongoDB , SQL databases , in-memory for devel
 Fully scalable , distributed and fault-tolerant, no zookeeper or other systems are needed ( based on leader/follower algorithm implemented in https://github.com/pioardi/ring-election ) <br>
 Job stats ( failure/success , duration time , failure rate ) TODO <br>
 Configurable retries for each job <br>
-Job timeout <br>
-Alerting for job failures and/or success <br>
+Job timeout (TODO) <br>
+Alerting for job failures and/or success (TODO) <br>
 
