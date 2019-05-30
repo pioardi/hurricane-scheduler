@@ -1,11 +1,11 @@
 # hurricane-scheduler
 Task scheduler with high availability.
 
-<h2 id="overview">
+<h2 id="overview"> Overview </h2>
 Hurricane scheduler is a distributed and fault-tolerant built on top of https://github.com/pioardi/ring-election . <br>
 It is able to schedule jobs that will execute your custom code writenn in node.js . <br>
 
-<h2 id="Features">
+<h2 id="Features"> Features </h2>
 Simple to install and to configure <br>
 Web UI (TODO) <br>
 REST API to create schedules <br>
