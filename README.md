@@ -5,6 +5,8 @@ Task scheduler with high availability.
 <a href="#overview">Overview</a><br>
 <a href="#Features">Features</><br>
 <a href="#REST API">REST API</a><br>
+<a href="#config">Configuration</a><br>
+
 
 <h2 id="overview"> Overview </h2>
 Hurricane scheduler is a distributed and fault-tolerant built on top of https://github.com/pioardi/ring-election . <br>
@@ -27,6 +29,7 @@ Alerting for job failures and/or success (TODO) <br>
 
 <h2 id="REST API"> REST API </h2>
 
+Schedule API run on port JOB_PORT , see configuration section for details. <br>
 <strong>Schedule</strong>
 <table>
    <tr>
@@ -118,9 +121,9 @@ Alerting for job failures and/or success (TODO) <br>
 
 
 <strong>Create schedules</strong> <br>
-<strong>HTTP VERB: POST</strong> <br>
-<strong>Path : /schedules</strong> <br>
-<strong>Input : Schedule</strong>
+HTTP VERB: POST <br>
+Path : /schedules <br>
+Input : Schedule
 
 <strong>Output</strong>
 <table>
@@ -138,14 +141,80 @@ Alerting for job failures and/or success (TODO) <br>
 
 
 <strong>Delete schedules</strong> <br>
-<strong>HTTP VERB: DELETE</strong> <br>
-<strong>Path : /schedules/SCHEDULE_ID</strong> <br>
+HTTP VERB: DELETE</strong> <br>
+Path : /schedules/SCHEDULE_ID <br>
 
 
 <strong>Get schedules</strong> <br>
-<strong>HTTP VERB: GET</strong> <br>
-<strong>Path : /schedules/SCHEDULE_ID</strong> <br>
-<strong>Output: Schedule</strong>
+HTTP VERB: GET <br>
+Path : /schedules/SCHEDULE_ID<br>
+Output: Schedule
 
 
+<h2 id="config"> CONFIGURATION </h2>
+<table>
+   <tr>
+    <th>Name</th>
+    <th>Default</th>
+    <th>Description</th> 
+  </tr>
+  <tr>
+    <td>PORT</td>
+    <td>3000</td>
+    <td>The leader will start to listen on this port</td>
+  </tr>
+  <tr>
+    <td>TIME_TO_RECONNECT</td>
+    <td>3000</td>
+    <td>The time in ms to wait for a follower when he has to connect to a new leader in ms </td>
+  </tr>
+  <tr>
+    <td>MAX_INACTIVE_TIME</td>
+    <td>10000</td>
+    <td>The time in ms to wait for an heart beath from a node before to remove it. </td>
+  </tr>
+   <tr>
+    <td>HEARTH_BEAT_FREQUENCY</td>
+    <td>1000</td>
+    <td>The frequency in ms with which a hearth beat is performed by a follower </td>
+  </tr>
+   <tr>
+    <td>HEARTH_BEAT_CHECK_FREQUENCY</td>
+    <td>3000</td>
+    <td>The frequency in ms with which an hearth check is performed by a leader</td>
+  </tr>
+  <tr>
+    <td>LOG_LEVEL</td>
+    <td>info</td>
+    <td>Follow this https://www.npmjs.com/package/winston#logging-levels </td>
+  </tr>   
+  <tr>
+    <td>NUM_PARTITIONS</td>
+    <td>10</td>
+    <td>Number of partitions to distribute across the cluster</td>
+  </tr>
+  <tr>
+    <td>SEED_NODES</td>
+    <td>No default</td>
+    <td>hostnames and ports of leader node comma separated, Ex . hostname1:port,hostname2:port </td>
+  </tr>      
+  <tr>
+    <td>MONITORING_PORT</td>
+    <td>9000</td>
+    <td>port to expose rest service for monitoring</td>
+  </tr>
+   <tr>
+    <td>JOB_PORT</td>
+    <td>3000</td>
+    <td>port to expose rest service for schedules</td>
+  </tr>
+   <tr>
+    <td>LOG_FILE_ENGINE</td>
+    <td>Default to root folder and name engine.log</td>
+    <td>File name used to log engine.</td>
+  </tr>    
+</table>
 
+   
+ 
+   
