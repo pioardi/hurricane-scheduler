@@ -58,7 +58,7 @@ function checkJobs(jobs, partition, now) {
     log.info(`Job in partition ${partition} and id ${j.id} assigned to me `);
     let toRun = shouldRun(j, now);
     if (toRun) {
-      run.startJob(j);
+      run.startJob(j,now);
     }
   });
 }
