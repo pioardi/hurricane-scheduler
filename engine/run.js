@@ -1,5 +1,6 @@
 /**
  * This is designed to run jobs in a new child process , passing some arguments into the child env.
+ * This module will handle retries,stats and alerting.
  * @author Alessandro Pio Ardizio
  */
 'use strict'
