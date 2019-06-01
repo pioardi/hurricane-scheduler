@@ -5,6 +5,8 @@ Task scheduler with high availability.
 <a href="#overview">Overview</a><br>
 <a href="#Features">Features</><br>
 <a href="#REST API">REST API</a><br>
+<a href="#config">Configuration</a><br>
+
 
 <h2 id="overview"> Overview </h2>
 Hurricane scheduler is a distributed and fault-tolerant built on top of https://github.com/pioardi/ring-election . <br>
@@ -27,7 +29,7 @@ Alerting for job failures and/or success (TODO) <br>
 
 <h2 id="REST API"> REST API </h2>
 
-Schedule API run on port JOB_PORT , see configuration section for details.
+Schedule API run on port JOB_PORT , see configuration section for details. <br>
 <strong>Schedule</strong>
 <table>
    <tr>
