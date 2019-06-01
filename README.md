@@ -1,6 +1,11 @@
 # hurricane-scheduler
 Task scheduler with high availability.
 
+
+
+![Alt text](doc/hurricane-2-mascot-logo-.jpg?raw=true "Title")
+
+
 <h2>Contents</h2>
 <a href="#overview">Overview</a><br>
 <a href="#Features">Features</><br>
