@@ -151,6 +151,12 @@ HTTP VERB: GET <br>
 Path : /schedules/SCHEDULE_ID<br>
 Output: Schedule
 
+<strong> Monitoring API run on MONITORING_PORT see configuration for details </strong>
+<strong>Get status</strong> <br>
+HTTP VERB: GET <br>
+Path : /status<br>
+Output: An array where each element represents a node into the cluster with assigned partitions , id and priority.
+
 
 <h2 id="config"> CONFIGURATION </h2>
 <table>
