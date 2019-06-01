@@ -62,7 +62,7 @@ Alerting for job failures and/or success (TODO) <br>
     <td>Number</td>
     <td>N</td>
     <td>N</td> 
-    <td>The number of retries that we want to do when a job fails.</td>
+    <td>The number of retries that we want to do when a job fails. Default is 0</td>
   </tr> 
   <tr>
     <td>timeout</td>

@@ -7,7 +7,7 @@
 let log = require('../loggers/loggers').default;
 const { spawn } = require('child_process');
 
-let startJob = (j,now) => {
+let startJob = (j,now,attempts) => {
     let executionID = `${j.id}-${now}`;
     let childEnv = process.env;
     childEnv.JOB_ID = j.id;
@@ -23,12 +23,7 @@ let startJob = (j,now) => {
     running.stderr.on('data', data => {
       log.error(`Received error logs from the job with id ${j.id} and execution id ${executionID}: ${data}`);
     });
-    running.on('close', code => {
-        if(code == 0)
-            log.info(`job with id ${j.id} and execution id ${executionID} terminated successfully with code ${code}`);
-        else
-            log.error(`job with id ${j.id} and execution id ${executionID} terminated with failure code ${code}`);
-    });
+    running.on('close', handleClose(j, executionID, attempts, now));
     running.on('error' , err => {
       log.error(`Received an error from the job with id ${j.id} and execution id ${executionID} ${err}`);
     })
@@ -36,5 +31,23 @@ let startJob = (j,now) => {
 
 module.exports = { 
     startJob : startJob
+}
+
+function handleClose(j, executionID, attempts, now) {
+    return code => {
+        if (code == 0) {
+            log.info(`job with id ${j.id} and execution id ${executionID} terminated successfully with code ${code}`);
+            // upgrade stats
+        }
+        else {
+            log.error(`job with id ${j.id} and execution id ${executionID} terminated with failure code ${code}`);
+            if (attempts <= j.retries) {
+                startJob(j, now, attempts + 1);
+            }
+            else {
+                // definitive failure , upgrade stats
+            }
+        }
+    };
 }
 

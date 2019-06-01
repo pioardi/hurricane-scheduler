@@ -59,7 +59,7 @@ function buildJob(job, partition, req) {
   job.years = req.body.years;
   job.scriptId = req.body.scriptId;
   job.partition = partition;
-  job.retries = req.body.retries;
+  job.retries = req.body.retries || 0;
   job.timeout = req.body.timeout;
 }
 
