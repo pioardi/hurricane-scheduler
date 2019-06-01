@@ -121,9 +121,9 @@ Schedule API run on port JOB_PORT , see configuration section for details. <br>
 
 
 <strong>Create schedules</strong> <br>
-<strong>HTTP VERB: POST</strong> <br>
-<strong>Path : /schedules</strong> <br>
-<strong>Input : Schedule</strong>
+HTTP VERB: POST <br>
+Path : /schedules <br>
+Input : Schedule
 
 <strong>Output</strong>
 <table>
@@ -141,14 +141,14 @@ Schedule API run on port JOB_PORT , see configuration section for details. <br>
 
 
 <strong>Delete schedules</strong> <br>
-<strong>HTTP VERB: DELETE</strong> <br>
-<strong>Path : /schedules/SCHEDULE_ID</strong> <br>
+HTTP VERB: DELETE</strong> <br>
+Path : /schedules/SCHEDULE_ID <br>
 
 
 <strong>Get schedules</strong> <br>
-<strong>HTTP VERB: GET</strong> <br>
-<strong>Path : /schedules/SCHEDULE_ID</strong> <br>
-<strong>Output: Schedule</strong>
+HTTP VERB: GET <br>
+Path : /schedules/SCHEDULE_ID<br>
+Output: Schedule
 
 
 <h2 id="config"> CONFIGURATION </h2>
