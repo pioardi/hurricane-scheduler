@@ -41,8 +41,7 @@ let superproce = x => {
   }
 };
 
-// TODO Reset 1 minute as tick
-let subscription = Rx.Observable.interval(10000 /* 1m */)
+let subscription = Rx.Observable.interval(60000 /* 1m */)
   .timeInterval()
   .map(e => {
     return;

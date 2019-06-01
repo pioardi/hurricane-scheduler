@@ -15,8 +15,12 @@ let startJob = (j,now,attempts) => {
     childEnv.JOB_TIMEOUT = j.timeout;
     childEnv.EXECUTION_ID = executionID;
     
-    let opts = { cwd: __dirname, timeout: 100, env: childEnv };
+    let opts = { cwd: __dirname, env: childEnv };
     const running = spawn('node', [`${__dirname}/scripts/${j.scriptId}.js`], opts);
+    setTimeout(() => {
+        log.info(`JOB TIMEOUT Sending termination signal for job with id ${j.id} and execution id ${executionID} `);
+        running.kill('SIGTERM');    
+    } , j.timeout)
     running.stdout.on('data', data => {
       log.info(`Received logs from the job with id ${j.id} and execution id ${executionID} : ${data}`);
     });

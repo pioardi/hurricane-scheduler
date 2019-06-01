@@ -60,7 +60,7 @@ function buildJob(job, partition, req) {
   job.scriptId = req.body.scriptId;
   job.partition = partition;
   job.retries = req.body.retries || 0;
-  job.timeout = req.body.timeout;
+  job.timeout = req.body.timeout || 60000;
 }
 
 function validateJob(job) {
