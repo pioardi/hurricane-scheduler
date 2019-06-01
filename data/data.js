@@ -1,3 +1,4 @@
+'use strict'
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://test:test@ds139781.mlab.com:39781/pioardi', {useNewUrlParser: true});
 
@@ -12,7 +13,9 @@ const Job = new Schema({
   daysOfTheMonth: [String],
   monthsOfTheYear: [String],
   years: [String],
-  scriptId: String, 
+  scriptId: String,
+  retries : Number,
+  timeout : Number, 
   partition: String
 });
 

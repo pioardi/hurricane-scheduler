@@ -1,3 +1,4 @@
+'use strict'
 const opentracing = require('opentracing')
 // NOTE: the default OpenTracing tracer does not record any tracing information.
 // Replace this line with the tracer implementation of your choice.

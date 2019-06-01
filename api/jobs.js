@@ -1,3 +1,8 @@
+/**
+ * Handler functions for REST API.
+ * @author Alessandro Pio Ardizio
+ */
+'use strict'
 const ring = require('ring-election');
 const { Job } = require('../data/data');
 const moment = require('moment-timezone');
@@ -54,6 +59,8 @@ function buildJob(job, partition, req) {
   job.years = req.body.years;
   job.scriptId = req.body.scriptId;
   job.partition = partition;
+  job.retries = req.body.retries;
+  job.timeout = req.body.timeout;
 }
 
 function validateJob(job) {

@@ -8,6 +8,7 @@
   "dev": {
     "LOG_LEVEL_ENGINE": "debug",
     "LOG_FILE_ENGINE": "engine.log",
-    "NUM_PARTITIONS": 10
+    "NUM_PARTITIONS": 10,
+    "NODE_ENV" : "dev"
   }
 }

@@ -1,0 +1,1 @@
+console.log(`Script 1 Executing job with id ${process.env.JOB_ID}`);

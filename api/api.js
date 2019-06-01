@@ -1,3 +1,8 @@
+/**
+ * Start express app to serve REST requests
+ * @author Alessandro Pio Ardizio
+ */
+'use strict'
 let express = require('express')
 let app = express()
 let middlewares = require('./middlewares')
