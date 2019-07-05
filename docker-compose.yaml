@@ -12,6 +12,12 @@ services:
       LOG_LEVEL_ENGINE: debug
       LOG_FILE_ENGINE: engine.log
       JOB_PORT: 3030
+      SMTP_HOST: smtp.mailgun.org
+      SMTP_PORT: 587
+      SMTP_USER: postmaster@sandbox9642d0fe56424868872cc623966c9fbd.mailgun.org
+      SMTP_PWD: 4af411902f499da4674ebe210d3f6861-2b778fc3-7a6b70d3
+      EMAIL_ALERTING_ENABLED: "false"
+      EMAIL_LIST: alessandroardizio94@gmail.com
     hostname: leader
     ports: 
       - 3000:3000
@@ -28,6 +34,12 @@ services:
       LOG_FILE_ENGINE: engine.log
       JOB_PORT: 3031
       TIME_TO_RECONNECT: 5000
+      SMTP_HOST: smtp.mailgun.org
+      SMTP_PORT: 587
+      SMTP_USER: postmaster@sandbox9642d0fe56424868872cc623966c9fbd.mailgun.org
+      SMTP_PWD: 4af411902f499da4674ebe210d3f6861-2b778fc3-7a6b70d3
+      EMAIL_ALERTING_ENABLED: "false"
+      EMAIL_LIST: alessandroardizio94@gmail.com
     hostname: follower-1
     ports:
       - 3001:3001
@@ -46,6 +58,12 @@ services:
       LOG_FILE_ENGINE: engine.log
       JOB_PORT: 3032
       TIME_TO_RECONNECT: 5000
+      SMTP_HOST: smtp.mailgun.org
+      SMTP_PORT: 587
+      SMTP_USER: postmaster@sandbox9642d0fe56424868872cc623966c9fbd.mailgun.org
+      SMTP_PWD: 4af411902f499da4674ebe210d3f6861-2b778fc3-7a6b70d3
+      EMAIL_ALERTING_ENABLED: "false"
+      EMAIL_LIST: alessandroardizio94@gmail.com
     hostname: follower-2
     ports:
       - 3002:3002

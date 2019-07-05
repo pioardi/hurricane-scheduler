@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://test:test@ds139781.mlab.com:39781/pioardi', {useNewUrlParser: true});
 
@@ -24,4 +24,4 @@ const JobModel = mongoose.model('Job', Job);
 
 module.exports = {
     Job: JobModel,
-}
+};

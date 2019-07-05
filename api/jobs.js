@@ -2,10 +2,11 @@
  * Handler functions for REST API.
  * @author Alessandro Pio Ardizio
  */
-'use strict'
+'use strict';
 const ring = require('ring-election');
 const { Job } = require('../data/data');
 const moment = require('moment-timezone');
+const log = require('../loggers/loggers').default;
 
 let createJob = (req, res) => {
   let job = new Job();
@@ -18,10 +19,10 @@ let createJob = (req, res) => {
   }
   job.save((err, data) => {
     if (err) {
-      console.error(err);
+      log.error(err);
       res.status(500).send({ err: 'Interaction error with DB' });
     } else {
-      console.log(data.id);
+      log.info(data.id);
       res.status(201).send({ id: data.id });
     }
   });
@@ -34,14 +35,17 @@ let updateJob = (req, res) => {
 let deleteJob = (req, res) => {
   Job.findById(req.params.id)
     .remove()
-    .then(data => {
+    .then((data) => {
       res.status(204).send();
     });
 };
 
 let getJob = (req, res) => {
   Job.findById(req.params.id, (err, data) => {
-    if (err) throw err;
+    if (err){
+      log.error(err);
+      res.status(500).send({ err: 'Interaction error with DB' });
+    }
     else {
       res.status(200).send(data);
     }
@@ -120,7 +124,7 @@ function validateHours(job,errors) {
   if(!job.hours) return;
   let allHoursAreValid = job.hours.every(h => h >= 0 && h <= 23);
   if (!allHoursAreValid) {
-    errors.push({message: 'HOURS ARE NOT VALID, ALL HOURS MUST BE BETWEEN 0 AND 23'})
+    errors.push({message: 'HOURS ARE NOT VALID, ALL HOURS MUST BE BETWEEN 0 AND 23'});
   }
 }
 

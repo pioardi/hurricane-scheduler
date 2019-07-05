@@ -3,9 +3,10 @@
  * This module will handle retries,stats and alerting.
  * @author Alessandro Pio Ardizio
  */
-'use strict'
+'use strict';
 let log = require('../loggers/loggers').default;
 const { spawn } = require('child_process');
+const alert = require('./alerting');
 
 let startJob = (j,now,attempts) => {
     let executionID = `${j.id}-${now}`;
@@ -20,7 +21,7 @@ let startJob = (j,now,attempts) => {
     setTimeout(() => {
         log.info(`JOB TIMEOUT Sending termination signal for job with id ${j.id} and execution id ${executionID} `);
         running.kill('SIGTERM');    
-    } , j.timeout)
+    } , j.timeout);
     running.stdout.on('data', data => {
       log.info(`Received logs from the job with id ${j.id} and execution id ${executionID} : ${data}`);
     });
@@ -30,12 +31,12 @@ let startJob = (j,now,attempts) => {
     running.on('close', handleClose(j, executionID, attempts, now));
     running.on('error' , err => {
       log.error(`Received an error from the job with id ${j.id} and execution id ${executionID} ${err}`);
-    })
-}
-
+      alert.sendEmail('Failure Job' , `Num of attempts ${attempts}. Received an error from the job with id ${j.id} and execution id ${executionID} ${err}` ).catch(log.error);
+    });
+};
 module.exports = { 
     startJob : startJob
-}
+};
 
 function handleClose(j, executionID, attempts, now) {
     return code => {
@@ -49,7 +50,7 @@ function handleClose(j, executionID, attempts, now) {
                 startJob(j, now, attempts + 1);
             }
             else {
-                // definitive failure , upgrade stats
+                // definitive failure , upgrade stats.
             }
         }
     };

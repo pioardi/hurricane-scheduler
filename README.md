@@ -26,7 +26,7 @@ Fully scalable , distributed and fault-tolerant, no zookeeper or other systems a
 Job stats ( failure/success , duration time , failure rate ) TODO <br>
 Configurable retries for each job <br>
 Job timeout<br>
-Alerting for job failures and/or success (TODO) <br>
+Alerting for failure jobs <br>
 
 <h2 id="REST API"> REST API </h2>
 
