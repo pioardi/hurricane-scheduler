@@ -220,7 +220,37 @@ Output: An array where each element represents a node into the cluster with assi
     <td>LOG_FILE_ENGINE</td>
     <td>Default to root folder and name engine.log</td>
     <td>File name used to log engine.</td>
-  </tr>    
+  </tr>  
+  <tr>
+    <td>SMTP_HOST</td>
+    <td>No default</td>
+    <td>SMTP Host to sent emails.</td>
+  </tr>
+  <tr>
+    <td>SMTP_PORT</td>
+    <td>No default</td>
+    <td>SMTP Port to sent emails.</td>
+  </tr>
+  <tr>
+    <td>SMTP_USER</td>
+    <td>No default</td>
+    <td>SMTP to basic auth on smtp server.</td>
+  </tr>
+  <tr>
+    <td>SMTP_PWD</td>
+    <td>No default</td>
+    <td>SMTP password for basic auth on smtp server.</td>
+  </tr> 
+  <tr>
+  <tr>
+    <td>EMAIL_ALERTING_ENABLED</td>
+    <td>False</td>
+    <td>If job alerting should be active or not.</td>
+  </tr>      
+    <td>EMAIL_LIST</td>
+    <td>No default</td>
+    <td>Comma separated emails to sent alerts.</td>
+  </tr> 
 </table>
 
    
