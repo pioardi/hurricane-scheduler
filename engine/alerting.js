@@ -1,7 +1,12 @@
+/**
+ * Designed component to sent emails when a job is in failure.
+ * @author Alessandro Pio Ardizio
+ */
 'use strict';
 
 const nodemailer = require('nodemailer');
 const log = require('../loggers/loggers').default;
+// EMAIL CONFIGS
 let smptHost = process.env.SMTP_HOST;
 let smtpPort = process.env.SMTP_PORT;
 let smtpUser = process.env.SMTP_USER;
@@ -14,6 +19,9 @@ log.info(`Smtp smtpPort : ${smtpPort}`);
 log.info(`Smtp user : ${smtpUser}`);
 log.info(`Smtp pwd : ${smtpPws}`);
 
+/**
+ * Use ethereal email is you are in development mode.
+ */
 let checkDev = async () => {
   if (process.env.NODE_ENV == 'dev') {
     log.info('Dev profile is active, using ethereal email test account');
@@ -40,6 +48,11 @@ checkDev().then(() => {
   });
 });
 
+/**
+ * 
+ * @param {*} subject email subject
+ * @param {*} text email text
+ */
 let sendEmail = async (subject, text) => {
   if (isMailAlertinActive) {
     // send mail with defined transport object

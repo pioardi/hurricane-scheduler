@@ -4,7 +4,7 @@
  */
 'use strict';
 const ring = require('ring-election');
-const { Job } = require('../data/data');
+const { Job } = require('../data/model');
 const moment = require('moment-timezone');
 const log = require('../loggers/loggers').default;
 

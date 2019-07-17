@@ -11,7 +11,7 @@ const Rx = require('@reactivex/rxjs');
 const ring = require('ring-election');
 const moment = require('moment-timezone');
 const run = require('./run');
-const { Job } = require('../data/data');
+const { Job } = require('../data/model');
 
 if (process.env.IS_LEADER) {
     log.info('Starting as leader');
